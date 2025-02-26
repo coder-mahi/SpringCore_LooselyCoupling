@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+	<bean id="dtdc" class="com.beans.DTDC"/>          <!-- Dependent class - parent-->
+	<bean id="bluedart" class="com.beans.BlueDart"/>	<!-- Dependent class - parent -->
+	<bean id="fpk" class="com.beans.Flipkart">          <!-- Target Class - child -->
+		<property name="courier">
+			<ref bean="dtdc"/>   <!-- Just change bean reference - LOOSELY COUPLING-->
+		</property>
+	</bean>
+</beans>
